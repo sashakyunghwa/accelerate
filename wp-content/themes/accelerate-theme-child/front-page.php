@@ -18,7 +18,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php the_content(); ?>
 				<a class="button" href="<?php echo site_url('/case-studies/') ?>">View Our Work</a>
-			<?php endwhile; // end of the loop. ?>
+            <?php endwhile; // end of the loop. ?>
 		</div><!-- .main-content -->
     </div><!-- #primary -->
     
@@ -55,7 +55,17 @@ get_header(); ?>
                     <h3 id="blog-title"><?php the_title(); ?></h3>
                     <?php the_excerpt(); ?>
                 <?php endwhile; ?> 
-                <?php wp_reset_query(); ?>
+                <?php wp_reset_query(); ?>    
+          </div>
+          <div class="sidebar-twitter">
+            <?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+            <div id="secondary" class="widget-area" role="complementary">
+	            <?php dynamic_sidebar( 'sidebar-2' ); ?>
+            </div>
+            <?php endif; ?>
+            <div class="read-more-link follow-us">
+                <a href="http://www.twitter.com/accelerate_marketing_strategy"><span>Follow us</span> ›</a>
+            </div>
           </div>
         </div>
     </section>
