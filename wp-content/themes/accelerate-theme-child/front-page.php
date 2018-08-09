@@ -60,13 +60,16 @@ get_header(); ?>
           <div class="sidebar-twitter">
             <?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
             <div id="secondary" class="widget-area" role="complementary">
+                <h4>Recent Tweet</h4>
 	            <?php dynamic_sidebar( 'sidebar-2' ); ?>
             </div>
             <?php endif; ?>
             <div class="read-more-link follow-us">
-                <a href="http://www.twitter.com/accelerate_marketing_strategy"><span>Follow us</span> ›</a>
+                <a href="http://www.twitter.com/sashakyunghwa"><span>Follow us</span> ›</a>
             </div>
           </div>
         </div>
     </section>
 <?php get_footer(); ?>
+
+

@@ -14,3 +14,5 @@
 	<input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="search" />
 	<input type="submit" id="searchsubmit" value="" />
 </form>
+
+

@@ -15,13 +15,82 @@
 get_header(); ?>
 	<div id="primary" class="home-page hero-content">
 		<div class="main-content" role="main">
-			<?php the_content(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php the_content(); ?>
+			<?php endwhile; // end of the loop. ?>
 		</div><!-- .main-content -->
-    </div><!-- #primary -->
+	</div><!-- #primary -->
 
 	<section class="about-content">
+		<?php while ( have_posts() ) : the_post();
+			$header = get_field('header');
+			$header_description = get_field('header_description');
+			$title_1 = get_field('service_title_1');
+			$title_2 = get_field('service_title_2');
+			$title_3 = get_field('service_title_3');
+			$description_1 = get_field('service_description_1');
+			$description_2 = get_field('service_description_2');
+			$description_3 = get_field('service_description_3');
+			$image_1 = get_field('service_image_1');
+			$image_2 = get_field('service_image_2');
+			$image_3 = get_field('service_image_3');
+			$size = 'full'; ?>
 		<div class="first-div">
-			<h3 id="our-service">Our Services</h3>
+			<h3 id="our-service"><?php echo $header ?></h3>
+			<p><?php echo $header_description ?></p>
+		</div>
+		<div class="services">
+			<div class="service">
+				<figure class="service-image-left">
+					<?php echo wp_get_attachment_image( $image_1, $size ); ?>
+				</figure>
+				<div id="content-strategy" class="service-text-right">
+					<h1><?php echo $title_1 ?></h1>
+					<p><?php echo $description_1 ?></p>
+				</div>
+			</div>
+			<div class="service">
+				<div class="service-text-left">
+					<h1><?php echo $title_2 ?></h1>
+					<p><?php echo $description_2 ?></p>
+				</div>
+				<figure class="service-image-right">
+					<?php echo wp_get_attachment_image( $image_2, $size ); ?>
+				</figure>	
+			</div>
+			<div class="service">
+				<figure class="service-image-left">
+					<?php echo wp_get_attachment_image( $image_3, $size ); ?>
+				</figure>
+				<div class="service-text-right">
+					<h1><?php echo $title_3 ?></h1>
+					<p><?php echo $description_3 ?></p>
+				</div>	
+			</div>
+			<div class="service">
+				<div class="service-text-left">
+					<h1><?php echo $title_4 ?></h1>
+					<p><?php echo $description_4 ?></p>
+				</div>
+				<figure class="service-image-right">
+					<?php echo wp_get_attachment_image( $image_4, $size ); ?>
+				</figure>	
+			</div>
+		</div>	
+		<div class="contact-us">
+			<h2>Interested in working with us?</h2>
+			<button>Contact Us</button>
+		</div>
+		<?php endwhile; // end of the loop. ?>
+	</section>
+
+<?php get_footer(); ?>
+
+
+<!-- /* Hardcode */ -->
+<!-- <section class="about-content">
+		<div class="first-div">
+			<h3 id="our-service"><?php the_title(); ?></h3>
 			<p>We take pride in our clients and the content we create for them.</p>
 			<p>Here's a brief overview of our offered services.</p>
 		</div>
@@ -71,6 +140,4 @@ get_header(); ?>
 		</div>
 	</section>
 
-	</div><!-- #primary -->
-
-<?php get_footer(); ?>
+	</div>#primary -->
